@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Administrator</title>
+        <style>
+            .evenRow {
+                background: PowderBlue;
+            }
+            .oddRow {
+                background: MediumTurquoise;
+                text-style: italic;
+            }
+        </style>
+    </h:head>
+    <h:body>
+
+        <h2>Welcome Administrator</h2><br></br>
+        <p:button value="Check User List" outcome="users"/>&nbsp;
+        <p:button value="Edit/Delete Book Database" outcome="crud"/>&nbsp;
+        <p:button value="Add Books to Database" outcome="add"/>
+    </h:body>   
+</html>
+

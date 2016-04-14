@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Shopping Cart</title>
+        <style>
+            .evenRow {
+                background: lightsteelblue;
+            }
+            .oddRow {
+                background: lightgray;
+                text-style: italic;
+            }
+        </style>
+        #{BookDatabase.initialize()}
+    </h:head>
+    <center>
+        <h:body style="background:beige">
+        <b>The Book Store</b>
+        <h:form>
+        <h:panelGrid id="panel" columns="5" border="1" cellpadding="0" cellspacing="2">
+            <f:facet name ="header">
+                <h:outputText value="List of Books"/>
+            </f:facet>
+            <h:outputText value="#" style="font-weight: bold"/>
+            <h:outputText value="Title" style="font-weight: bold; animation-fill-mode: backwards"/>
+            <h:outputText value="Author" style="font-weight: bold; animation-fill-mode: backwards"/>
+            <h:outputText value="Price" style="font-weight: bold; animation-fill-mode: backwards"/>
+            <h:outputText value="Add 1?" style="font-weight: bold; animation-fill-mode: backwards"/>
+            <h:outputText value="1" style="font-weight: bold"/>
+            <h:outputText value="#{BookDatabase.books[0].title}"/>
+            <h:outputText value="#{BookDatabase.books[0].author}"/>
+            <h:outputText value="#{BookDatabase.books[0].price}" style="text-align: right">
+                          <f:convertNumber	currencyCode="USD" type="currency"/>
+            </h:outputText>
+            <h:commandLink value="Add To Shopping Cart" action="#{ShoppingCart.add(BookDatabase.books[0])}"/>
+            <h:outputText value="2" style="font-weight: bold"/>
+            <h:outputText value="#{BookDatabase.books[1].title}"/>
+            <h:outputText value="#{BookDatabase.books[1].author}"/>
+            <h:outputText value="#{BookDatabase.books[1].price}" style="text-align: right">
+                          <f:convertNumber	currencyCode="USD" type="currency"/>
+            </h:outputText>
+            <h:commandLink value="Add To Shopping Cart" action="#{ShoppingCart.add(BookDatabase.books[1])}"/>
+            <h:outputText value="3" style="font-weight: bold"/>
+            <h:outputText value="#{BookDatabase.books[2].title}"/>
+            <h:outputText value="#{BookDatabase.books[2].author}"/>
+            <h:outputText value="#{BookDatabase.books[2].price}" style="text-align: right">
+                          <f:convertNumber	currencyCode="USD" type="currency"/>
+            </h:outputText>
+            <h:commandLink value="Add To Shopping Cart" action="#{ShoppingCart.add(BookDatabase.books[2])}"/>
+            <h:outputText value="4" style="font-weight: bold"/>
+            <h:outputText value="#{BookDatabase.books[3].title}"/>
+            <h:outputText value="#{BookDatabase.books[3].author}"/>
+            <h:outputText value="#{BookDatabase.books[3].price}" style="text-align: right">
+                          <f:convertNumber	currencyCode="USD" type="currency"/>
+            </h:outputText>
+            <h:commandLink value="Add To Shopping Cart" action="#{ShoppingCart.add(BookDatabase.books[3])}"/>
+        </h:panelGrid>
+        </h:form>
+        <br></br><br></br>
+        <b>Shopping Cart</b>
+        <h:form>
+            <h:dataTable value="#{ShoppingCart.cart}" var="item" border="1" rowClasses="evenRow,oddRow">
+                <f:facet name ="header">
+                <h:outputText value="Shopping Cart"/>
+                </f:facet>
+                <h:column>
+                    <f:facet name="header">Title</f:facet>
+                        #{item.title}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Author</f:facet>
+                        #{item.author}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Unit Price</f:facet>
+                    <h:outputText value="#{item.price}">    
+                        <f:convertNumber currencyCode="USD" type="currency"/> 
+                    </h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Subtotal</f:facet>
+                    <h:outputText value="#{item.subtotal}">    
+                        <f:convertNumber currencyCode="USD" type="currency"/> 
+                    </h:outputText>
+                </h:column>
+                <h:column>
+                    
+                    <f:facet name="header">Quantity</f:facet>
+                        #{item.quantity}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Remove 1?</f:facet>
+                    <h:commandLink value="Reduce by 1 Item" action="#{ShoppingCart.remove(item)}" >
+                        <f:ajax render="@form" />
+                    </h:commandLink>
+                </h:column>
+            </h:dataTable>
+            <h:outputText value="Total: " style="text-align: right"/>
+            <h:outputText value="#{ShoppingCart.total}" style="text-align: right">
+                          <f:convertNumber currencyCode="USD" type="currency"/>
+            </h:outputText>
+        </h:form>
+    </h:body>
+    </center>
+</html>
+

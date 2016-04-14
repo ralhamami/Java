@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Program6</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="dept">Department List</string>
+    <string name="Biology">Biology</string>
+    <string name="Chemistry">Chemistry</string>
+    <string name="Computer">Computer Science</string>
+    <string name="Engineering">Engineering</string>
+    <string name="Funeral">Funeral Services</string>
+    <string name="Mathematics">Mathematics and Statistics</string>
+    <string name="Nursing">Nursing</string>
+    <string-array name="departments">
+        <item>Biology</item>
+        <item>Chemistry</item>
+        <item>Computer Science</item>
+        <item>Engineering</item>
+        <item>Funeral Services</item>
+        <item>Mathematics and Statistics</item>
+        <item>Nursing</item>
+    </string-array>
+
+</resources>

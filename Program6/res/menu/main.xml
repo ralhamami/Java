@@ -1,0 +1,34 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="mossi.alobaid.uco.program6.MainActivity" >
+
+    <item
+        android:id="@+id/Biology"
+        android:showAsAction="ifRoom"
+        android:title="@string/Biology"/>
+    <item
+        android:id="@+id/Chemistry"
+        android:showAsAction="ifRoom"
+        android:title="@string/Chemistry"/>
+    <item
+        android:id="@+id/Computer"
+        android:showAsAction="ifRoom"
+        android:title="@string/Computer"/>
+    <item
+        android:id="@+id/Engineering"
+        android:showAsAction="ifRoom"
+        android:title="@string/Engineering"/>
+    <item
+        android:id="@+id/Funeral"
+        android:showAsAction="ifRoom"
+        android:title="@string/Funeral"/>
+    <item
+        android:id="@+id/Mathematics "
+        android:showAsAction="ifRoom"
+        android:title="@string/Mathematics"/>
+    <item
+        android:id="@+id/Nursing "
+        android:showAsAction="ifRoom"
+        android:title="@string/Nursing"/>
+
+</menu>

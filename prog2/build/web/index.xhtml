@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>User Registration</title>
+    </h:head>
+    <h:body>
+        <h:form id="registration">
+            <h:panelGrid id="panel" columns="2" border="1" cellpadding="0" cellspacing="2">
+                <f:facet name="header">
+                    <h:outputText value="User Registration"/>
+                </f:facet>
+                <h:outputLabel for="lastName" value = "Last Name"/>
+                <h:inputText id="lastName" value="#{user.lastName}"/>
+                <h:outputLabel for="firstName" value = "First Name"/>
+                <h:inputText id="firstName" value="#{user.firstName}"/>
+                <h:outputLabel for="pwd" value = "Password"/>
+                <h:inputSecret id="pwd" value="#{user.pwd}" redisplay="true"/>
+                <h:outputLabel for="email" value = "Email"/>
+                <h:inputText id="email" value="#{user.email}"/>
+                <h:outputLabel for="phone" value = "Phone #"/>
+                <h:inputText id="phone" value="#{user.phone}"/>
+                <h:outputLabel for="gender" value="Gender"/>
+                <h:selectOneRadio id="gender" value="#{user.gender}">
+                    <f:selectItem id="male" itemLabel="Male" itemValue="Male"/>
+                    <f:selectItem id="female" itemLabel="Female" itemValue="Female"/>
+                </h:selectOneRadio>
+                <h:outputLabel for="languages" value="Languages"/>
+                <h:selectManyCheckbox id="languages" value="#{user.languages}">
+                    <f:selectItem id="item1" itemLabel="C++" itemValue="C++"/>
+                    <f:selectItem id="item2" itemLabel="Java" itemValue="Java"/>
+                    <f:selectItem id="item3" itemLabel="C#" itemValue="C#"/>
+                    <f:selectItem id="item4" itemLabel="Swift" itemValue="Swift"/>
+                    <f:selectItem id="item5" itemLabel="Python" itemValue="Python"/>
+                </h:selectManyCheckbox>
+                <h:outputLabel for="location" value="Location"/>
+                <h:selectOneMenu id="location" value="#{user.location}" style="width:250px">
+                    <f:selectItem itemLabel="Please Select a City/Town" itemValue=""/>
+                    <f:selectItem id="edmond" itemLabel="Edmond" itemValue="Edmond"/>
+                    <f:selectItem id="okc" itemLabel="OKC" itemValue="OKC"/>
+                    <f:selectItem id="moore" itemLabel="Moore" itemValue="Moore"/>
+                    <f:selectItem id="norman" itemLabel="Norman" itemValue="Norman"/>
+                    <f:selectItem id="tulsa" itemLabel="Tulsa" itemValue="Tulsa"/>
+                    <f:selectItem id="ba" itemLabel="Broken Arrow" itemValue="Broken Arrow"/>
+                </h:selectOneMenu>
+                <f:facet name="footer">
+                    <h:panelGroup style="display:block; text-align:center">
+                        <h:commandButton value="Sign Up" action="#{user.validate()}" style="width:250px"/>
+                    </h:panelGroup>
+                </f:facet>
+            </h:panelGrid>
+            <h:panelGrid id="errors" columns="1" border="0" cellpadding="0" cellspacing="2">
+                <h:message for="lastName"  errorStyle="color: red" infoStyle="color: green"/>
+                <h:message for="firstName"  errorStyle="color: red" infoStyle="color: green"/>
+                <h:message for="pwd"  errorStyle="color: red" infoStyle="color: green"/>
+                <h:message for="email"  errorStyle="color: red" infoStyle="color: green"/>
+                <h:message for="phone"  errorStyle="color: red" infoStyle="color: green"/>
+                <h:message for="gender"  errorStyle="color: red" infoStyle="color: green"/>
+                <h:message for="languages"  errorStyle="color: red" infoStyle="color: green"/>
+                <h:message for="location"  errorStyle="color: red" infoStyle="color: green"/>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+

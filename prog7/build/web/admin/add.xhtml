@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Add Books</title>
+    </h:head>
+    <h:body>
+        <h:form id="addForm">
+            <h2>Create Book Entry</h2>
+            <br></br>
+            <h:panelGrid columns="2" cellspacing="5">
+            Title: 
+            <p:inputText value="#{booksTableBean.insertTitle}"></p:inputText><br />
+            Author: 
+            <p:inputText value="#{booksTableBean.insertAuthor}"></p:inputText><br />
+            Price: 
+            <p:inputText value="#{booksTableBean.insertPrice}"></p:inputText><br />
+            </h:panelGrid>
+            <p:commandButton value="Add" action="#{booksTableBean.add()}"></p:commandButton>
+            <p:button value="Logout" outcome="/logout"></p:button>
+        </h:form>
+        <h:message for="formAdd"  errorStyle="color: red" infoStyle="color: green"/>
+    </h:body>
+</html>
+

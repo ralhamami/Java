@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Ray's Bookstore</title>
+        <style>
+            .evenRow {
+                background: PowderBlue;
+            }
+            .oddRow {
+                background: MediumTurquoise;
+                text-style: italic;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        <center><h1>Welcome to Ray's Bookstore</h1></center>
+        <h:form>
+        <p:dataTable var="book"
+                     value="#{bookDB.books}"
+                     id="bookTable"
+                     >
+            <p:column>
+                <f:facet name="header">Title</f:facet>
+                    #{book.title}
+            </p:column>
+            <p:column>
+                <f:facet name="header">Author</f:facet>
+                    #{book.author}
+            </p:column>
+            <p:column>
+                <f:facet name="header">Price</f:facet>
+                <h:outputText value="#{book.price}">
+                    <f:convertNumber currencyCode="USD" type="currency"/>
+                </h:outputText>
+            </p:column>
+            <p:column>
+                <f:facet name="header">Add to Cart?</f:facet>
+                
+                    <h:commandLink value="Add to Cart">
+                        <f:ajax listener="#{shoppingCart.addToCart(book)}" render=":asdf :cartTable :asdf2" />
+                    </h:commandLink>
+                
+            </p:column>
+        </p:dataTable>
+        </h:form>
+
+        <h2>Shopping Cart Contents</h2>
+        <h:form id="asdf">
+        <p:dataTable var="bookItem"
+                     value="#{shoppingCart.cartItems}"
+                     id="cartTable"
+                     >
+            <p:column>
+                <f:facet name="header">Title</f:facet>
+                    #{bookItem.title}
+            </p:column>
+            <p:column>
+                <f:facet name="header">Author</f:facet>
+                    #{bookItem.author}
+            </p:column>
+            <p:column>
+              <f:facet name="header">Price</f:facet>
+
+                <h:outputText value="#{bookItem.price}" >
+                     <f:convertNumber currencyCode="USD" type="currency"/>
+                </h:outputText>
+            </p:column>
+            <p:column>
+                <f:facet name="header">Quantity</f:facet>
+                    #{bookItem.quantity}
+            </p:column>
+            <p:column>
+                <f:facet name="header">Sub Total</f:facet>
+                <h:outputText value="#{bookItem.subTotal}" >
+                     <f:convertNumber currencyCode="USD" type="currency"/>
+                </h:outputText>
+            </p:column>
+            <p:column>
+                <f:facet name="header">Action</f:facet>
+                
+                    <h:commandLink value="Reduce Q'ty by 1">
+                        <f:ajax listener="#{shoppingCart.reducequantity(bookItem)}" render=":asdf :cartTable :asdf2"/>
+                    </h:commandLink>
+            </p:column>
+            <f:facet name="footer">
+                Current Total:
+                <h:outputText id="total" value="#{shoppingCart.currentTotal}">
+                <f:convertNumber currencyCode="USD" type="currency"/>
+                </h:outputText>
+                Total Items: 
+                <h:outputText id="quantity" value="#{shoppingCart.totalQuantity}">
+                </h:outputText>
+            </f:facet>
+        </p:dataTable>
+        </h:form>
+        <h:form id="asdf2">
+            <br></br>
+            <p:commandButton value="Check out" action="#{shoppingCart.checkOut()}">
+                
+            </p:commandButton>&nbsp;
+            <p:commandButton value="View purchase history" action="purchase_history">
+                
+            </p:commandButton>&nbsp;
+            <p:commandButton value="Logout" action="/logout"></p:commandButton>
+        </h:form>
+    </h:body>
+</html>
+

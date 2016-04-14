@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Sign Up Success</title>
+    </h:head>
+    <h:body>
+        <h:panelGrid id="errors" columns="2" border="0" cellpadding="0" cellspacing="2">
+            <h:outputLabel for="lastName" value = "Last Name: " style="font-weight:bold"/>
+            <h:outputText id="lastName" value="#{user.lastName}"/>
+            <h:outputLabel for="firstName" value = "First Name: " style="font-weight:bold"/>
+            <h:outputText id="firstName" value="#{user.firstName}"/>
+            <h:outputLabel for="pwd" value = "Password: " style="font-weight:bold"/>
+            <h:outputText id="pwd" value="#{user.pwd}"/>
+            <h:outputLabel for="email" value = "Email: " style="font-weight:bold"/>
+            <h:outputText id="email" value="#{user.email}"/>
+            <h:outputLabel for="phone" value = "Phone # " style="font-weight:bold"/>
+            <h:outputText id="phone" value="#{user.phone}"/>
+            <h:outputLabel for="gender" value="Gender: " style="font-weight:bold"/>
+            <h:outputText id="gender" value="#{user.gender}"/>
+            <h:outputLabel for="languages" value="Languages: " style="font-weight:bold"/>
+            <h:outputText id="language" value="#{user.languageSelection}"/>
+            <h:outputLabel for="location" value="Location: " style="font-weight:bold"/>
+            <h:outputText id="location" value="#{user.location}"/>
+        </h:panelGrid>
+    </h:body>
+</html>
+

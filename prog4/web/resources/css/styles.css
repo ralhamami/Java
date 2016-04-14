@@ -1,0 +1,7 @@
+.evenRow {
+    background: lightsteelblue;
+}
+.oddRow {
+    background: lightgray;
+    text-style: italic;
+}

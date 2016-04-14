@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>User Registration</title>
+    </h:head>
+    <h:body>
+        <h2>Program 4 - Annotation-based Bean Validation</h2>
+        <br />
+        <h:form>
+            <h:panelGrid columns="3" cellpadding="0" cellspacing="2">
+                Last Name:
+                <h:inputText id="lastName"  size="40" value="#{registration.lastName}" />
+                <h:message for="lastName" errorStyle="color: red" />
+                First Name:
+                <h:inputText id="firstName"  size="40" value="#{registration.firstName}" />
+                <h:message for="firstName" errorStyle="color: red" />
+                Password:
+                <h:inputSecret id="pwd"  size="40" value="#{registration.pwd}" redisplay="true"/>
+                <h:message for="pwd" errorStyle="color: red" />
+                Phone:
+                <h:inputText id="phone"  size="40" value="#{registration.phone}" />
+                <h:message for="phone" errorStyle="color: red" />
+                Email:
+                <h:inputText id="email"  size="40" value="#{registration.email}" />
+                <h:message for="email" errorStyle="color: red" />
+                Gender:
+                <h:selectOneRadio id="gender" value="#{registration.gender}">
+                    <f:selectItem id="male" itemLabel="Male" itemValue="Male"/>
+                    <f:selectItem id="female" itemLabel="Female" itemValue="Female"/>
+                </h:selectOneRadio>
+                <h:message for="gender" errorStyle="color: red" />
+                Languages: 
+                <h:selectManyCheckbox id="languages" value="#{registration.languages}">
+                    <f:selectItem id="item1" itemLabel="C++" itemValue="C++"/>
+                    <f:selectItem id="item2" itemLabel="Java" itemValue="Java"/>
+                    <f:selectItem id="item3" itemLabel="C#" itemValue="C#"/>
+                    <f:selectItem id="item4" itemLabel="Swift" itemValue="Swift"/>
+                    <f:selectItem id="item5" itemLabel="Python" itemValue="Python"/>
+                </h:selectManyCheckbox>
+                <h:message for="languages" errorStyle="color: red" />
+                Location:
+                <h:selectOneMenu id="location" value="#{registration.location}" style="width:250px">
+                    <f:selectItem itemLabel="Please Select a City/Town" itemValue=""/>
+                    <f:selectItem id="edmond" itemLabel="Edmond" itemValue="Edmond"/>
+                    <f:selectItem id="okc" itemLabel="OKC" itemValue="OKC"/>
+                    <f:selectItem id="moore" itemLabel="Moore" itemValue="Moore"/>
+                    <f:selectItem id="norman" itemLabel="Norman" itemValue="Norman"/>
+                    <f:selectItem id="tulsa" itemLabel="Tulsa" itemValue="Tulsa"/>
+                    <f:selectItem id="ba" itemLabel="Broken Arrow" itemValue="Broken Arrow"/>
+                </h:selectOneMenu>
+                <h:message for="location" errorStyle="color: red" />
+            </h:panelGrid>
+            <br />
+            <h:commandButton value="Submit" action="#{registration.update()}" />
+        </h:form>
+        <h:form>
+            <h:commandButton value="Display Data" action="users"/>
+        </h:form>
+    </h:body>
+</html>
+
